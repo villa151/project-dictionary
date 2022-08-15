@@ -12,11 +12,14 @@ export default function Dictionary() {
     setResults(response.data[0]);
   }
 
-  function search(event) {
-    event.preventDefault();
-
+  function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function search(event) {
+    event.preventDefault();
+    search();
   }
 
   function handleKeywordChange(event) {
